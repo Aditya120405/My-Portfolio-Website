@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Aditya Portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}
+a{color:var(--fg);text-decoration:none}a:hover{color:var(--ac)}
+.g{background:var(--card);border:1px solid var(--bd);border-radius:20px;backdrop-filter:blur(14px)}
+.m{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+.ph{display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);background:var(--card);border:1px dashed var(--bd);border-radius:16px}
+html{scroll-behavior:smooth}
+::selection{background:color-mix(in srgb,var(--ac) 35%,transparent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.g{transition:border-color .2s}
+.g:hover{border-color:color-mix(in srgb,var(--ac) 45%,transparent)}
+button{cursor:pointer}
+input:focus,textarea:focus{border-color:var(--ac)}
+@media(max-width:820px){
+h1{font-size:44px!important}
+h2{font-size:30px!important}
+[style*="max-width:1360px"]{padding:0 18px 40px!important}
+[style*="justify-content:space-between;margin-top:24px"]{padding:10px 14px!important}
+[style*="gap:28px;font-size:14px"]{display:none!important}
+[id][style*="padding:24px 0 72px"]{padding-bottom:44px!important}
+[id="about"]{padding:56px 0 44px!important}
+[style*="repeat(4,1fr)"]{grid-template-columns:1fr 1fr!important;grid-auto-rows:150px!important}
+[style*="2fr 1fr"]{grid-template-columns:1fr!important}
+[style*="padding:48px"]{padding:28px 18px!important}
+[style*="height:320px"],[style*="height:360px"]{height:220px!important}
+}
+.ic{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ic svg{width:24px;height:24px;stroke:var(--c);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:filter .25s}
+.ic:hover{background:color-mix(in srgb,var(--c) 16%,transparent);border-color:var(--c);box-shadow:0 0 20px color-mix(in srgb,var(--c) 55%,transparent);transform:translateY(-3px)}
+.ic:hover svg{filter:drop-shadow(0 0 6px var(--c))}
+.ic:active{transform:scale(.9);box-shadow:0 0 34px var(--c)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pulse{50%{transform:scale(1.08);opacity:.8}}
+:root{--dur:.7s}
+.ga{animation:up var(--dur) both;transition:transform .35s,border-color .2s}
+.ga:hover{transform:scale(1.03);border-color:var(--ac)}
+.va{animation:up var(--dur) both}
+.va svg{animation:pulse 2.4s ease-in-out infinite}
+.va:hover svg{animation-duration:1s}
+.ga:nth-child(2){animation-delay:0.07s}.ga:nth-child(3){animation-delay:0.14s}.ga:nth-child(4){animation-delay:0.21s}.ga:nth-child(5){animation-delay:0.28s}.ga:nth-child(6){animation-delay:0.35s}.ga:nth-child(7){animation-delay:0.42s}.ga:nth-child(8){animation-delay:0.49s}.ga:nth-child(9){animation-delay:0.56s}
+@media(prefers-reduced-motion:reduce){.ga,.va,.va svg{animation:none}.ga:hover{transform:none}}
+@media(max-width:820px){[style*="repeat(4,minmax"],[style*="repeat(3,minmax"],[style*="repeat(2,minmax"]{grid-template-columns:1fr!important}}
+
+.pt{width:min(100%,300px);aspect-ratio:1/1;border-radius:50%;border:2px solid var(--ac);box-shadow:0 0 0 10px color-mix(in srgb,var(--ac) 8%,transparent),0 0 70px color-mix(in srgb,var(--ac) 25%,transparent);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut);background:var(--card);overflow:hidden}
+.pt{position:relative}.pt img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:16px}
+.vlg{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media(max-width:820px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.vlg{grid-template-columns:1fr}.navl{display:none!important}.ct{padding:28px 18px!important}.nav{padding:10px 14px!important}.wrap{padding-left:18px!important;padding-right:18px!important}}
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:center}
+.h-t{order:2}.h-p{order:1;display:flex;justify-content:center;min-width:0}.h-d{order:3}
+@media(min-width:821px){.hero{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);grid-template-areas:"t p" "t d";column-gap:clamp(24px,4vw,56px)}.h-t{grid-area:t;order:0}.h-p{grid-area:p;order:0;align-self:end}.h-d{grid-area:d;order:0;align-self:start}}
+@media(max-width:820px){.pt{width:min(68%,230px)!important}}
+@keyframes zoom{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@keyframes slide{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes drift{50%{transform:translate(40px,30px)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes glow{50%{box-shadow:0 0 0 14px color-mix(in srgb,var(--ac) 5%,transparent),0 0 90px color-mix(in srgb,var(--ac) 40%,transparent)}}
+:root{--ent:up}
+.ga{animation:var(--ent) var(--dur) both}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.js .rv.in{opacity:1;transform:none}
+.orb{animation:drift 14s ease-in-out infinite}
+.pt{animation:glow 4s ease-in-out infinite;background-color:transparent}
+.cur{animation:blink 1s steps(1) infinite;margin-left:2px}
+.h-t>*{animation:up .8s both}.h-t>*:nth-child(2){animation-delay:.1s}.h-t>*:nth-child(3){animation-delay:.2s}.h-t>*:nth-child(4){animation-delay:.3s}.h-t>*:nth-child(5){animation-delay:.4s}
+@media(prefers-reduced-motion:reduce){.orb,.pt,.cur,.h-t>*{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+@keyframes wd{0%{opacity:0;transform:translateY(8px)}12%,85%{opacity:1;transform:none}100%{opacity:0}}
+.rotw{display:inline-block;animation:wd 1.8s infinite}
+@supports(animation-timeline:view()){.rv{animation:rvu .9s both;animation-timeline:view();animation-range:entry 0% entry 80%}}
+@media(prefers-reduced-motion:reduce){.rotw,.rv{animation:none}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes zi{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes sp{to{transform:rotate(360deg)}}
+.sk{background:linear-gradient(90deg,var(--ac) -50%,var(--ac) 150%);background:linear-gradient(90deg,var(--card) 25%,var(--bd) 50%,var(--card) 75%);background-size:200% 100%;animation:sh 1.4s infinite}
+button,a,input,textarea,.g,.rw,.dz,.bt,.ib{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s,opacity .25s}
+button:active,.bt:active{transform:scale(.96)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--ac);border-radius:50%;animation:sp .7s linear infinite}
+.zm{cursor:zoom-in;transition:transform .3s}.zm:hover{transform:scale(1.02)}
+.avb{width:40px;height:40px;border-radius:50%;padding:0;border:2px solid var(--ac);background:none;cursor:pointer;overflow:hidden;position:relative}
+.avb:hover{box-shadow:0 0 16px var(--ac)}
+.avi{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.dd{position:absolute;right:0;top:52px;width:250px;z-index:30;background:var(--bg);border:1px solid var(--bd);border-radius:16px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:pop .22s both}
+.ddh{padding:10px 12px 12px;border-bottom:1px solid var(--bd);margin-bottom:6px}
+.di{display:flex;align-items:center;justify-content:space-between;width:100%;box-sizing:border-box;padding:11px 12px;border-radius:10px;border:0;background:none;color:var(--fg);font:inherit;font-size:14px;cursor:pointer;text-align:left}
+.di:hover{background:var(--card);color:var(--ac)}
+.sw{width:40px;height:22px;border-radius:999px;background:var(--bd);position:relative;display:inline-block}
+.swk{position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--ac);transition:transform .3s}
+.lb{position:absolute;left:0;right:0;top:0;bottom:0;background:rgba(3,6,12,.84);z-index:50;display:flex;justify-content:center;align-items:flex-start;animation:fi .3s both}
+.lbi{position:relative;max-width:min(92%,900px);animation:zi .35s cubic-bezier(.2,.8,.2,1) both}
+.lbi img{max-width:100%;max-height:760px;border-radius:14px;display:block}
+.lbx{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:var(--bg);color:var(--fg);font-size:16px;cursor:pointer}
+@keyframes rvu{from{transform:translateY(26px)}to{transform:none}}
+@keyframes sl{from{transform:translateX(100%)}to{transform:none}}
+.nav{position:relative;z-index:60;backdrop-filter:none;background:color-mix(in srgb,var(--fg) 7%,var(--bg))}
+.ic{width:56px;height:56px;background:color-mix(in srgb,var(--fg) 10%,transparent);border:1px solid color-mix(in srgb,var(--fg) 28%,transparent);backdrop-filter:none}
+.ic svg{width:26px;height:26px;stroke-width:1.9}
+.ddo{position:fixed;left:0;right:0;top:0;bottom:0;background:transparent;z-index:70;animation:fi .25s both}
+.dd{z-index:80}
+.ddc{display:none;position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:none;color:var(--fg);cursor:pointer}
+@media(max-width:820px){.dd{position:fixed;top:0;right:0;bottom:0;left:auto;width:min(80vw,300px);border-radius:20px 0 0 20px;padding:72px 12px 12px;animation:sl .3s cubic-bezier(.2,.8,.2,1) both}.ddo{background:rgba(3,6,12,.55)}.ddc{display:block}}
+.ct .ic{background:color-mix(in srgb,var(--fg) 12%,transparent);border-color:color-mix(in srgb,var(--fg) 30%,transparent)}
+.ct .m{color:var(--fg)}
+@keyframes sdl{from{transform:translateX(-100%);opacity:0}to{transform:none;opacity:1}}
+.dd{left:0!important;right:auto!important}
+.nav{gap:14px}
+.tg{width:40px;height:40px;border-radius:50%;border:1px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
+.tg:hover{border-color:var(--ac2);color:var(--ac);box-shadow:0 0 16px color-mix(in srgb,var(--ac2) 55%,transparent)}
+.ic{width:58px;height:58px;border-radius:16px;padding:7px;box-sizing:border-box;overflow:hidden}
+.ic.wt{background:#fff!important;border-color:rgba(11,31,42,.14)!important}
+.ic.nt{background:transparent!important;border-color:transparent!important;padding:3px}
+.ic .ico{width:100%;height:100%;object-fit:contain;display:block;transition:filter .25s,transform .25s}
+.ic:hover .ico{filter:drop-shadow(0 0 7px var(--c));transform:scale(1.07)}
+.g{box-shadow:var(--sh)}
+.m::before{content:"";display:inline-block;width:22px;height:2px;background:var(--ac2);vertical-align:middle;margin-right:10px;border-radius:2px}
+.pt{border-color:var(--ac2)!important;box-shadow:0 0 0 10px color-mix(in srgb,var(--ac2) 16%,transparent),0 0 70px color-mix(in srgb,var(--ac2) 42%,transparent)!important}
+.avb{border-color:var(--ac2)}
+.orb{opacity:var(--orbo)!important}
+@media(max-width:820px){.dd{border-radius:0 20px 20px 0!important;animation:sdl .3s cubic-bezier(.2,.8,.2,1) both!important}.ddc{right:14px}}
+.rsb{padding:10px 18px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.rsb:hover{border-color:var(--ac2);color:var(--ac);box-shadow:0 0 16px color-mix(in srgb,var(--ac2) 50%,transparent)}
+.rpop{position:absolute;right:0;top:50px;width:210px;z-index:80;background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:6px;box-shadow:0 20px 50px rgba(0,0,0,.3);animation:pop .22s both}
+.rpop .di{text-decoration:none}
+@keyframes rp{from{opacity:.95;transform:scale(.3)}to{opacity:0;transform:scale(2.4)}}
+button,.bt,.ib,.di,a.ic,.avb,.rsb{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
+button:active::after,.bt:active::after,.ib:active::after,.di:active::after,a.ic:active::after,.rsb:active::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;border-radius:inherit;background:radial-gradient(circle,color-mix(in srgb,var(--ac2,#7cf5d4) 60%,transparent) 0%,transparent 65%);animation:rp .55s ease-out both;pointer-events:none}
+button:active,.bt:active,.ib:active,.di:active,.rsb:active{transform:scale(.95);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac2,#7cf5d4) 35%,transparent)}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid var(--bd);border-radius:999px;color:var(--fg);transition:border-color .25s,box-shadow .25s,transform .25s}
+.chip:hover{border-color:var(--ac2);box-shadow:0 0 12px color-mix(in srgb,var(--ac2) 45%,transparent);transform:translateY(-2px)}
+.navl a:active{color:var(--ac2);transform:scale(.96)}
+</style>
+</helmet>
+<div style="background:var(--bg);color:var(--fg);font-family:'Space Grotesk',sans-serif;width:100%;box-sizing:border-box;position:relative;overflow:hidden;--dur:{{dur}}s;--ent:{{ent}};{{tv}};transition:background-color .5s,color .5s;animation:fi .8s both">
+<div class="orb" style="position:absolute;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;background:var(--ac2);opacity:.12;filter:blur(120px)"></div>
+<div class="orb" style="position:absolute;top:900px;left:-200px;width:520px;height:520px;border-radius:50%;background:#8b9bff;opacity:.10;filter:blur(120px)"></div>
+
+<div class="wrap" style="position:relative;max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 64px;box-sizing:border-box">
+
+<div class="g nav" style="display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:24px;padding:14px 24px;border-radius:999px">
+<div class="pw" style="display:flex;align-items:center;gap:14px;position:relative"><sc-if value="{{signedIn}}" hint-placeholder-val="{{ false }}"><button class="avb" onClick="{{toggleMenu}}" aria-label="Admin menu"><img class="avi" src="{{photoSrc}}" alt=""></button>
+<sc-if value="{{menu}}" hint-placeholder-val="{{ false }}"><div class="ddo" onClick="{{toggleMenu}}"></div><div class="dd"><button class="ddc" onClick="{{toggleMenu}}" aria-label="Close menu">✕</button><div class="ddh"><div style="font-weight:700">{{name}}</div><div style="color:var(--mut);font-size:12px">{{email}}</div></div>
+<a class="di" href="/admin">Admin page</a>
+<button class="di" onClick="{{toggleTheme}}"><span>{{themeLabel}}</span><span class="sw"><span class="swk" style="{{knob}}"></span></span></button>
+<button class="di" onClick="{{logout}}">Log out</button></div></sc-if></sc-if>
+<div style="font-weight:700;font-size:18px">aditya<span style="color:var(--ac)">.dev</span></div></div>
+<div class="navl" style="display:flex;gap:28px;font-size:14px">
+<a href="#about">About</a><a href="#timeline">Timeline</a><a href="#work">Projects</a><a href="#gallery">Gallery</a><a href="#vlogs">Vlogs</a><a href="#sports">Sports</a>
+</div>
+<div style="display:flex;align-items:center;gap:12px"><div style="position:relative"><button class="rsb" onClick="{{toggleResume}}" aria-label="Resume">Resume <span style="font-size:10px">▾</span></button>
+<sc-if value="{{rm}}" hint-placeholder-val="{{ false }}"><div class="ddo" onClick="{{toggleResume}}"></div><div class="rpop"><a class="di" href="{{resumeUrl}}" target="_blank" rel="noopener">View resume</a><a class="di" href="{{resumeUrl}}" target="_blank" rel="noopener" download="{{resumeName}}">Download resume</a></div></sc-if></div>
+<a href="#contact" style="padding:10px 20px;border-radius:999px;background:var(--ac);color:var(--onac);font-weight:700;font-size:14px">Hire me</a></div>
+</div>
+
+<div id="about" class="hero" style="padding:72px 0 56px">
+<div class="h-t" style="min-width:0">
+<div class="m">Computer Science &amp; Design · <span>{{loc}}</span></div>
+<h1 style="margin:16px 0 20px;font-size:clamp(40px,6vw,76px);line-height:1.02;font-weight:700"><span>{{name}}</span>.<br>Where <span style="color:var(--ac)">code</span> meets <span style="color:var(--ac)">craft</span>.</h1>
+<div style="font-family:'JetBrains Mono',monospace;font-size:clamp(14px,2vw,18px);color:var(--ac);margin:-4px 0 20px;min-height:1.6em"><span style="color:var(--mut)">&gt; </span><span class="rotw">{{rot}}</span><span class="cur">▍</span></div>
+<p style="margin:0 0 32px;font-size:19px;line-height:1.6;color:var(--mut);max-width:560px">{{bio}}</p>
+<div style="display:flex;gap:14px;flex-wrap:wrap">
+<a href="#work" style="padding:14px 26px;border-radius:999px;background:var(--ac);color:var(--onac);font-weight:700">View projects</a>
+<a href="{{resumeUrl}}" target="_blank" rel="noopener" download="{{resumeName}}" style="padding:14px 26px;border-radius:999px;border:1px solid var(--bd)">Download resume</a>
+</div>
+</div>
+<div class="h-p"><div class="pt sk"><img alt="Aditya" src="{{photoSrc}}"></div></div>
+<div class="h-d g" style="box-sizing:border-box;padding:24px;display:flex;flex-direction:column;gap:12px;font-size:14px">
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">Studying</span><span>BE CS &amp; Design, Year 3</span></div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">University</span><span>SPPU</span></div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">Role</span><span>{{role}}</span></div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">Community</span><span>GDG Mumbai · Pune · Gandhinagar</span></div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">Email</span><a href="mailto:{{email}}" style="color:var(--fg)">{{email}}</a></div>
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 16px"><span style="color:var(--mut)">Status</span><span style="color:var(--ac)">{{status}}</span></div>
+</div>
+</div>
+
+<div class="rv" id="skills" style="padding:0 0 72px">
+<div class="m">Skills</div>
+<h2 style="margin:10px 0 28px;font-size:44px">Toolkit</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px"><sc-for list="{{skills}}" as="g" hint-placeholder-count="0"><div class="g" style="padding:22px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700">{{g.n}}</div><div style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{g.chips}}" as="c" hint-placeholder-count="0"><span class="chip">{{c.t}}</span></sc-for></div></div></sc-for></div>
+</div>
+
+<div class="rv" id="timeline" style="padding:24px 0 72px">
+<div class="m">01 / Achievements &amp; timeline</div>
+<h2 style="margin:10px 0 32px;font-size:44px">The journey so far</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;margin-top:0"><sc-for list="{{ach}}" as="a" hint-placeholder-count="0"><div class="g" style="padding:24px"><div class="m">{{a.y}}</div><div style="font-size:20px;font-weight:700;margin:10px 0 8px">{{a.t}}</div><div style="color:var(--mut);line-height:1.5">{{a.x}}</div></div></sc-for></div>
+</div>
+
+<div class="rv" id="work" style="padding:24px 0 72px">
+<div class="m">02 / Projects</div>
+<h2 style="margin:10px 0 32px;font-size:44px">Selected work</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px;margin-top:0"><sc-for list="{{proj}}" as="p" hint-placeholder-count="0"><div class="g" style="padding:20px;display:flex;flex-direction:column;gap:16px"><div style="font-size:22px;font-weight:700">{{p.t}}</div><div style="color:var(--mut);line-height:1.5">{{p.x}}</div><sc-if value="{{p.hasStack}}" hint-placeholder-val="{{ true }}"><div class="m">{{p.s}}</div></sc-if><div style="display:flex;gap:20px;font-size:14px"><sc-if value="{{p.hasLive}}" hint-placeholder-val="{{ true }}"><a href="{{p.u}}" target="_blank" rel="noopener">Live demo ↗</a></sc-if><sc-if value="{{p.hasSrc}}" hint-placeholder-val="{{ true }}"><a href="{{p.v}}" target="_blank" rel="noopener">Source ↗</a></sc-if></div></div></sc-for></div>
+</div>
+
+<div class="rv" id="certs" style="padding:24px 0 72px">
+<div class="m">Certifications</div>
+<h2 style="margin:10px 0 32px;font-size:44px">Always learning</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px"><sc-for list="{{certs}}" as="c" hint-placeholder-count="0"><div class="g" style="padding:22px"><div class="m">{{c.y}}</div><div style="font-size:18px;font-weight:700;margin:10px 0 6px;line-height:1.3">{{c.t}}</div><div style="color:var(--mut)">{{c.i}}</div><sc-if value="{{c.hasC}}" hint-placeholder-val="{{ false }}"><div class="sk" style="border-radius:10px;margin-top:14px;overflow:hidden"><img src="{{c.c}}" alt="Certificate" onClick="{{c.open}}" class="zm" style="width:100%;display:block;border-radius:10px;border:1px solid var(--bd)"></div></sc-if></div></sc-for></div>
+</div>
+
+<div class="rv" id="gallery" style="padding:24px 0 72px">
+<div class="m">03 / Gallery</div>
+<h2 style="margin:10px 0 32px;font-size:44px">Moments and achievements</h2>
+<sc-if value="{{noGal}}" hint-placeholder-val="{{ true }}"><div class="gal">
+<div class="ph ga" style="grid-column:span 2;grid-row:span 2">[PHOTO: BEST ACHIEVEMENT MOMENT]</div>
+<div class="ph ga">[PHOTO]</div><div class="ph ga">[PHOTO]</div>
+<div class="ph ga">[PHOTO]</div><div class="ph ga">[PHOTO]</div>
+<div class="ph ga">[PHOTO]</div><div class="ph ga" style="grid-column:span 2">[PHOTO: EVENT / STAGE]</div><div class="ph ga">[PHOTO]</div>
+</div></sc-if>
+<sc-if value="{{hasGal}}" hint-placeholder-val="{{ false }}"><div class="gal"><sc-for list="{{gal}}" as="p" hint-placeholder-count="0"><div class="ph ga" style="padding:0;overflow:hidden;border-style:solid"><img src="{{p.src}}" alt="" style="width:100%;height:100%;object-fit:cover"></div></sc-for></div></sc-if>
+</div>
+
+<div class="rv" id="vlogs" style="padding:24px 0 72px">
+<div class="m">04 / Video &amp; mini vlogs</div>
+<h2 style="margin:10px 0 32px;font-size:44px">On camera</h2>
+<div class="vlg">
+<div class="g va" style="padding:16px"><div class="ph" style="height:360px;flex-direction:column;gap:14px"><svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="var(--ac)" stroke-width="2"><circle cx="32" cy="32" r="30"/><path d="M26 20l20 12-20 12z"/></svg>[FEATURED VIDEO]</div><div style="padding:14px 6px 4px;font-weight:700">[Video title]</div></div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="g va" style="padding:12px"><div class="ph" style="height:130px">[MINI VLOG 1]</div></div>
+<div class="g va" style="padding:12px"><div class="ph" style="height:130px">[MINI VLOG 2]</div></div>
+<div class="g va" style="padding:12px"><div class="ph" style="height:130px">[MINI VLOG 3]</div></div>
+</div>
+</div>
+<sc-if value="{{hasVid}}" hint-placeholder-val="{{ false }}"><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;margin-top:20px"><sc-for list="{{vids}}" as="v" hint-placeholder-count="0"><div class="g va" style="padding:12px"><video class="sk" controls preload="metadata" playsinline src="{{v.src}}" style="width:100%;border-radius:12px;background:#000"></video><div style="padding:10px 4px 2px;font-weight:700">{{v.n}}</div></div></sc-for></div></sc-if>
+</div>
+
+<div class="rv" id="sports" style="padding:24px 0 72px">
+<div class="m">05 / Sports</div>
+<h2 style="margin:10px 0 32px;font-size:44px">Off the keyboard</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px;margin-top:0"><sc-for list="{{sport}}" as="x" hint-placeholder-count="0"><div class="g" style="padding:24px"><div style="font-size:20px;font-weight:700">{{x.t}}</div><div style="color:var(--mut);margin-top:6px">{{x.x}}</div><sc-if value="{{x.hasCert}}" hint-placeholder-val="{{ false }}"><div class="sk" style="border-radius:12px;margin-top:14px;overflow:hidden"><img src="{{x.c}}" alt="Certificate" onClick="{{x.open}}" class="zm" style="width:100%;display:block;border-radius:12px;border:1px solid var(--bd)"></div></sc-if></div></sc-for></div>
+</div>
+
+<div id="contact" class="g ct" style="padding:48px;text-align:center;background:linear-gradient(135deg,color-mix(in srgb,var(--ac) 36%,var(--bg)),color-mix(in srgb,#8b9bff 32%,var(--bg)));border:1px solid color-mix(in srgb,var(--ac) 60%,transparent);backdrop-filter:none;box-shadow:0 20px 60px color-mix(in srgb,var(--ac) 22%,transparent)">
+<div class="m">06 / Find me online</div>
+<h2 style="margin:10px 0 28px;font-size:44px">Let's build something</h2>
+<div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a href="{{lnk.github}}" target="_blank" rel="noopener" aria-label="GitHub" class="g ic wt" style="--c:#8b949e"><img class="ico" src="/_blob/b6abf8deebb67e4322db8804936b9a84" alt=""></a><a href="{{lnk.linkedin}}" target="_blank" rel="noopener" aria-label="LinkedIn" class="g ic wt" style="--c:#0a66c2"><img class="ico" src="/_blob/ed137f9be0f6be82bbfebe82611e7f5c" alt=""></a><a href="{{lnk.leetcode}}" target="_blank" rel="noopener" aria-label="LeetCode" class="g ic wt" style="--c:#ffa116"><img class="ico" src="/_blob/968da40ad41a56c8a746683c0c2de30b" alt=""></a><a href="{{lnk.instagram}}" target="_blank" rel="noopener" aria-label="Instagram" class="g ic nt" style="--c:#e1306c"><img class="ico" src="/_blob/c4e4f56baa742e5704de6a3dbeef2b6b" alt=""></a><a href="{{lnk.snapchat}}" target="_blank" rel="noopener" aria-label="Snapchat" class="g ic nt" style="--c:#fffc00"><img class="ico" src="/_blob/01d596824a63bf92d7aaf5bf9cf3b11d" alt=""></a><a href="{{lnk.pinterest}}" target="_blank" rel="noopener" aria-label="Pinterest" class="g ic wt" style="--c:#e60023"><img class="ico" src="/_blob/2effdf29d6f468df97f28e319e20caa2" alt=""></a><a href="{{lnk.x}}" target="_blank" rel="noopener" aria-label="X" class="g ic wt" style="--c:#8b949e"><img class="ico" src="/_blob/5fc54e212d675556207b40ee7446e797" alt=""></a><a href="mailto:{{email}}" target="_blank" rel="noopener" aria-label="Email" class="g ic wt" style="--c:#ea4335"><img class="ico" src="/_blob/418d27dc8277ad551bf87f7a29479d85" alt=""></a></div>
+</div>
+<div style="text-align:center;color:var(--mut);font-size:13px;margin-top:32px">© Aditya · Designed and built by me</div>
+</div>
+<sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}"><div class="lb" onClick="{{closeLb}}"><div class="lbi" style="{{lbStyle}}"><img src="{{lbSrc}}" alt="Certificate"><button class="lbx" onClick="{{closeLb}}" aria-label="Close">✕</button></div></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#7cf5d4"},"$preview":{"width":1280,"height":5800}}'>
+class Component extends DCLogic {
+componentDidMount() {
+this.K = 'aditya-portfolio';
+this.words = ['Full-stack', 'Cloud', 'Design', 'Photography', 'Reader'];
+this.ri = 0;
+this.pull = () => {
+let d = {};
+try { d = JSON.parse(localStorage.getItem(this.K) || 'null') || {}; } catch (e) {}
+const w = ((d.t || {}).words || '').split(',').map((x) => x.trim()).filter(Boolean);
+if (w.length) this.words = w;
+let th = 'dark'; let out = false;
+try { th = localStorage.getItem('aditya-theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); out = localStorage.getItem('aditya-admin') !== '1'; } catch (e) {}
+this.setState({ d: d, theme: th, out: out });
+this.loadVideos(d);
+this.loadResume(d);
+};
+this.loadResume = (d) => {
+const rs = d.resume;
+if (!rs || !rs.id) return;
+try {
+const r = indexedDB.open('aditya-media', 1);
+r.onupgradeneeded = () => r.result.createObjectStore('v');
+r.onsuccess = () => {
+const g = r.result.transaction('v').objectStore('v').get(rs.id);
+g.onsuccess = () => {
+const m = Object.assign({}, (this.state || {}).rurl || {});
+if (g.result && !m[rs.id]) { m[rs.id] = URL.createObjectURL(g.result); this.setState({ rurl: m }); }
+};
+};
+} catch (e) {}
+};
+this.loadVideos = (d) => {
+(d.vid || []).forEach((v) => {
+if (v.k !== 'idb') return;
+try {
+const r = indexedDB.open('aditya-media', 1);
+r.onupgradeneeded = () => r.result.createObjectStore('v');
+r.onsuccess = () => {
+const g = r.result.transaction('v').objectStore('v').get(v.id);
+g.onsuccess = () => {
+const m = Object.assign({}, (this.state || {}).vurl || {});
+if (g.result && !m[v.id]) { m[v.id] = URL.createObjectURL(g.result); this.setState({ vurl: m }); }
+};
+};
+} catch (e) {}
+});
+};
+this.pull();
+this.onKey = (e) => { if (e.key === 'Escape') this.setState({ lb: null, menu: false, rm: false }); };
+window.addEventListener('keydown', this.onKey);
+this.onStorage = (e) => { if (e.key === this.K || e.key === 'aditya-theme' || e.key === 'aditya-admin') this.pull(); };
+window.addEventListener('storage', this.onStorage);
+try { this.bc = new BroadcastChannel(this.K); this.bc.onmessage = () => this.pull(); } catch (e) {}
+this.timer = setInterval(() => { this.ri += 1; this.setState({ rot: this.words[this.ri % this.words.length] }); }, 1800);
+}
+componentWillUnmount() {
+clearInterval(this.timer);
+window.removeEventListener('storage', this.onStorage);
+window.removeEventListener('keydown', this.onKey);
+if (this.bc) this.bc.close();
+}
+defa() { return [{"y": "2025", "t": "AlgoUniversity Tech Fellowship 2025, Stage 1", "x": "Cleared Stage 1 of a competitive selection program."}, {"y": "2026", "t": "GDG Cloud Mumbai: Build with MongoDB and AI", "x": "Selected for a hands-on event with a panel of industry speakers."}, {"y": "2026", "t": "Top 10 at Hacker House Goa 2026", "x": "Led team Infinity Logic to a top 10 finish among 700+ registered teams."}, {"y": "2nd year", "t": "Head of the Photography Committee", "x": "Led my department's photography committee in Computer Science and Design."}, {"y": "Aura 2.0", "t": "Lead Designer, Aura 2.0", "x": "Designed event posters and pamphlets for the college fest."}]; }
+defp() { return [{"t": "Hacker House Goa Generator", "x": "Photo frame and ID card generator for the Hacker House Goa 2026 hackathon. Led the team, Infinity Logic, and built it single-handedly. It reached 1.5k+ users and ranked in the top 10 of 700+ registered teams.", "s": "Python FastAPI · Google Gemini · Vite · Node.js · HTML · CSS · Vercel", "u": "https://hh-goa-26-delta.vercel.app/", "v": "https://github.com/Aditya120405/HH-Goa-26"}, {"t": "NabhaSetu", "x": "Smart education portal for students of Nabha, Punjab, built for an SIH internal hackathon to bridge rural connectivity and access gaps. Frontend Lead: offline-friendly study material, parent progress tracking, teacher notices and quizzes.", "s": "React · Vite · Node.js · Express.js · FastAPI · Google Gemini · Vercel", "u": "", "v": "https://github.com/Aditya120405/Nabhasetu"}, {"t": "Bank Account System", "x": "Desktop banking application built with core Java and Java Swing.", "s": "Java · Java Swing", "u": "", "v": ""}]; }
+defs() { return [{"t": "Volleyball", "x": ""}, {"t": "Skating", "x": ""}, {"t": "Roll Ball", "x": ""}, {"t": "Football", "x": ""}, {"t": "Aerial Silk", "x": ""}, {"t": "Yoga", "x": ""}, {"t": "Mallakhamb", "x": ""}]; }
+defk() { return [{"n": "Languages & web", "i": "Java, Python, JavaScript, HTML, CSS"}, {"n": "Frameworks & tooling", "i": "React, Vite, Node.js, Express.js, FastAPI"}, {"n": "Data & core CS", "i": "DSA, DBMS, SQL Database, MongoDB, Firebase"}, {"n": "Cloud & AI", "i": "GCP, Azure, Oracle Cloud, Google Gemini"}, {"n": "Workflow", "i": "Git & GitHub, Vercel, Google Stitch"}, {"n": "Design", "i": "Poster design, Canva, Adobe Photoshop, Affinity, Adobe Express"}]; }
+lst(d, k) { const base = k === 'ach' ? this.defa() : (k === 'proj' ? this.defp() : (k === 'skill' ? this.defk() : this.defs())); return d[k + '_v2'] ? (d[k] || []) : base.concat(d[k] || []); }
+defc() { return [{"y": "Oct 2025", "t": "AlgoUniversity Tech Fellowship 2025", "i": "Stage 1 clearance"}, {"y": "Dec 2025", "t": "Fabric Data Engineer (DP-700) Ignite & Fabric Data Days Skills Challenge", "i": "Microsoft"}, {"y": "May 2026", "t": "Programming in Java", "i": "NPTEL / Swayam"}, {"y": "Aug 2026", "t": "Build with MongoDB and AI", "i": "Google Cloud Platform"}, {"y": "Aug 2026", "t": "Getting Started with Artificial Intelligence", "i": "IBM"}, {"y": "[DATE]", "t": "Introduction to Cloud Infrastructure", "i": "Microsoft"}, {"y": "Sep 2026", "t": "Oracle Cloud Infrastructure AI Foundations", "i": "Oracle"}, {"y": "Expected soon", "t": "Responsive Web Design", "i": "freeCodeCamp"}]; }
+setTheme(t) { try { localStorage.setItem('aditya-theme', t); if (this.bc) this.bc.postMessage(1); } catch (e) {} this.setState({ theme: t }); }
+setOut(v) { try { if (v) localStorage.removeItem('aditya-admin'); else localStorage.setItem('aditya-admin', '1'); if (this.bc) this.bc.postMessage(1); } catch (e) {} this.setState({ out: v, menu: false }); }
+openLb(e, src) { const r = e.currentTarget.getBoundingClientRect(); const y = r.top + (window.pageYOffset || 0); this.setState({ lb: { src: src, top: Math.max(24, Math.round(y - 120)) } }); }
+renderVals() {
+const s = this.state || {};
+const d = s.d || {};
+const t = d.t || {};
+const l = d.l || {};
+const vu = s.vurl || {};
+const th = s.theme === 'light' ? 'light' : 'dark';
+const out = !!s.out;
+const defl = { github: 'https://github.com/Aditya120405', linkedin: 'https://www.linkedin.com/in/aditya-jain1204', instagram: 'https://www.instagram.com/the.lostframes__' };
+const lnk = {};
+['github', 'linkedin', 'leetcode', 'instagram', 'snapchat', 'pinterest', 'x'].forEach((k) => { lnk[k] = l[k] || defl[k] || '#'; });
+const gal = (d.gal || []).map((x) => ({ src: x }));
+const vids = (d.vid || []).map((v) => ({ n: v.n || 'Video', src: v.k === 'idb' ? (vu[v.id] || '') : (v.u || '') }));
+return {
+tv: th === 'light' ? '--bg:#e8f1ef;--fg:#0b1f2a;--mut:#3d5160;--card:rgba(255,255,255,.92);--bd:rgba(11,31,42,.14);--ac:#0a7d68;--ac2:#18c9a0;--onac:#ffffff;--orbo:.38;--sh:0 10px 30px rgba(11,31,42,.08),0 1px 3px rgba(11,31,42,.06)' : '--bg:#07090f;--fg:#e8ecf4;--mut:#9aa4b8;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.12);--ac:#7cf5d4;--ac2:#7cf5d4;--onac:#07090f;--orbo:.12;--sh:none',
+themeLabel: th === 'light' ? 'Switch to dark mode' : 'Switch to light mode',
+knob: th === 'light' ? 'transform:translateX(18px)' : 'transform:none',
+toggleTheme: () => this.setTheme(th === 'light' ? 'dark' : 'light'),
+menu: !!s.menu, toggleMenu: () => this.setState({ menu: !s.menu }),
+signedIn: !out, signedOut: out, logout: () => this.setOut(true), login: () => this.setOut(false),
+lbOpen: !!s.lb, lbSrc: s.lb ? s.lb.src : '', lbStyle: 'margin-top:' + (s.lb ? s.lb.top : 0) + 'px', closeLb: () => this.setState({ lb: null }),
+accent: this.props.accent ?? '#7cf5d4',
+name: t.name || 'Aditya',
+loc: t.loc || 'Khapar, Nandurbar, Maharashtra',
+role: t.role || 'Head, Photography Committee',
+email: t.email || 'aadityajain01223@gmail.com',
+status: t.status || 'Open to internships, jobs & travel',
+bio: t.bio || "Part full-stack builder, part pixel obsessive. I turn messy problems into slick products people genuinely enjoy using. Third-year CS & Design at Dr. Vithalrao Vikhe Patil College of Engineering (SPPU), GDG regular across Mumbai, Pune and Gandhinagar, and the one behind the lens as head of the photography committee.",
+rot: s.rot || 'Full-stack',
+resumeUrl: (d.resume && d.resume.id) ? ((s.rurl || {})[d.resume.id] || '') : '/_blob/4a3d9eb8dcb227b7fc67a9a633cf74a9', resumeName: (d.resume && d.resume.n) || 'Aditya_Jain_Resume.pdf', rm: !!s.rm, toggleResume: () => this.setState({ rm: !s.rm }),
+photoSrc: d.photo || '/_blob/cb74fc0db53272e935b4bfe72ecaed65',
+lnk: lnk,
+dur: d.speed || '0.7',
+ent: d.ent || 'up',
+gal: gal, hasGal: gal.length > 0, noGal: gal.length === 0,
+ach: this.lst(d, 'ach'),
+skills: this.lst(d, 'skill').map((g) => ({ n: g.n, chips: String(g.i || '').split(',').map((x) => x.trim()).filter(Boolean).map((t) => ({ t: t })) })),
+proj: this.lst(d, 'proj').map((p) => Object.assign({}, p, { hasLive: !!p.u, hasSrc: !!p.v, hasStack: !!p.s })),
+sport: this.lst(d, 'sport').map((x) => Object.assign({}, x, { hasCert: !!x.c, open: (e) => this.openLb(e, x.c) })),
+certs: (d.cert || this.defc()).map((c) => Object.assign({}, c, { hasC: !!c.c, open: (e) => this.openLb(e, c.c) })),
+vids: vids, hasVid: vids.length > 0
+};
+}
+}
+</script>
+</body>
+</html>

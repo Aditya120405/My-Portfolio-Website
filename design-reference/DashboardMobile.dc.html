@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mobile · Portfolio Dashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}
+a{color:var(--fg);text-decoration:none}a:hover{color:var(--ac)}
+.g{background:var(--card);border:1px solid var(--bd);border-radius:16px}
+.m{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--mut)}
+input,textarea{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px;color:var(--fg);font:inherit;font-size:14px}
+input:focus,textarea:focus,button:focus-visible{border-color:var(--ac);outline:2px solid var(--ac);outline-offset:2px}
+.dz{display:flex;align-items:center;justify-content:center;min-height:90px;border:1px dashed color-mix(in srgb,var(--ac) 50%,transparent);border-radius:14px;color:var(--mut);font-size:13px;text-align:center;padding:12px}
+.rq{color:#ff5c5c;font-weight:700}
+.er{color:#ff8080;font-size:12px}
+.rq{color:#ff5c5c;font-weight:700}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent!important;border:0!important;padding:0!important;height:28px;accent-color:var(--ac);cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 55%,transparent),rgba(139,155,255,.35))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--ac);border:3px solid var(--bg);margin-top:-8px;box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent),0 0 14px color-mix(in srgb,var(--ac) 50%,transparent)}
+input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:color-mix(in srgb,var(--ac) 35%,transparent)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:999px;background:var(--ac)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--ac);border:3px solid var(--bg);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 30%,transparent)}
+.pn{display:flex;flex-direction:column;gap:24px}
+.bt{display:flex;padding:12px 22px;border-radius:999px;border:1px solid var(--ac);background:none;color:var(--ac);font:inherit;min-height:44px;cursor:pointer;box-sizing:border-box;align-items:center}
+.rw{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border:1px solid var(--bd);border-radius:12px;font-size:14px}
+.ib{background:none;border:1px solid var(--bd);border-radius:8px;color:var(--fg);cursor:pointer;min-width:44px;min-height:44px;font:inherit}
+@media(max-width:820px){.dw{flex-direction:column!important;min-height:0!important}.sb{position:fixed;left:0;top:0;bottom:0;width:min(78vw,280px);z-index:60;background:var(--bg);transform:translateX(-104%);transition:transform .3s cubic-bezier(.2,.8,.2,1);padding:24px 16px!important;overflow-y:auto;border-right:1px solid var(--bd)!important;flex:none!important}.sb.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.5)}.hbw{display:block}.sbo{display:block;position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(3,6,12,.55);z-index:55;animation:fi .25s both}.br{margin-bottom:8px!important}.mn{padding:20px 16px!important}.two{grid-template-columns:minmax(0,1fr)!important}}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes sp{to{transform:rotate(360deg)}}
+.pn{animation:fi .35s both}
+button,a,input,textarea,.g,.rw,.dz,.bt,.ib{transition:background-color .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s,opacity .25s}
+button:active,.bt:active{transform:scale(.96)}
+.bt:hover,.ib:hover{box-shadow:0 0 16px color-mix(in srgb,var(--ac) 45%,transparent)}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--ac);border-radius:50%;animation:sp .7s linear infinite}
+.hbw{display:none}.sbo{display:none}
+.g{box-shadow:var(--sh)}
+.m::before{content:"";display:inline-block;width:22px;height:2px;background:var(--ac2);vertical-align:middle;margin-right:10px;border-radius:2px}
+@keyframes rp{from{opacity:.95;transform:scale(.3)}to{opacity:0;transform:scale(2.4)}}
+button,.bt,.ib,.di,a.ic,.avb,.rsb{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
+button:active::after,.bt:active::after,.ib:active::after,.di:active::after,a.ic:active::after,.rsb:active::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;border-radius:inherit;background:radial-gradient(circle,color-mix(in srgb,var(--ac2,#7cf5d4) 60%,transparent) 0%,transparent 65%);animation:rp .55s ease-out both;pointer-events:none}
+button:active,.bt:active,.ib:active,.di:active,.rsb:active{transform:scale(.95);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac2,#7cf5d4) 35%,transparent)}
+.chip{font-family:'JetBrains Mono',monospace;font-size:12px;padding:6px 12px;border:1px solid var(--bd);border-radius:999px;color:var(--fg);transition:border-color .25s,box-shadow .25s,transform .25s}
+.chip:hover{border-color:var(--ac2);box-shadow:0 0 12px color-mix(in srgb,var(--ac2) 45%,transparent);transform:translateY(-2px)}
+.navl a:active{color:var(--ac2);transform:scale(.96)}
+</style>
+</helmet>
+<div class="dw" style="display:flex;min-height:900px;width:100%;background:var(--bg);color:var(--fg);font-family:'Space Grotesk',sans-serif;{{tv}};transition:background-color .5s,color .5s">
+<div class="sb {{sbc}}" style="flex:0 0 240px;box-sizing:border-box;padding:28px 20px;border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:6px">
+<div class="br" style="font-weight:700;font-size:18px;margin-bottom:24px">aditya<span style="color:var(--ac)">.dev</span> <span class="m" style="font-size:10px">admin</span></div>
+<sc-for list="{{tabList}}" as="tb" hint-placeholder-count="3"><button style="{{tb.style}}" onClick="{{tb.go}}">{{tb.label}}</button></sc-for>
+</div>
+<sc-if value="{{navOpen}}" hint-placeholder-val="{{ false }}"><div class="sbo" onClick="{{toggleNav}}"></div></sc-if>
+<div class="mn" style="flex:1;min-width:0;box-sizing:border-box;padding:32px 40px;max-width:1040px;display:flex;flex-direction:column;gap:24px">
+<div class="hbw"><button class="bt" onClick="{{toggleNav}}" aria-label="Open menu">☰ Menu</button></div>
+<div><div class="m">Dashboard</div><h1 style="margin:6px 0 0;font-size:34px">Edit your portfolio</h1><div class="m" style="margin-top:8px;text-transform:none;letter-spacing:0;display:flex;align-items:center;gap:8px"><sc-if value="{{busy}}" hint-placeholder-val="{{ false }}"><span class="spin"></span></sc-if>{{st}}</div></div>
+<sc-if value="{{out}}" hint-placeholder-val="{{ false }}"><div class="g" style="padding:32px;display:flex;flex-direction:column;gap:16px;align-items:flex-start"><div style="font-weight:700;font-size:20px">You are signed out</div><div style="color:var(--mut)">Sign in to edit your portfolio. This demo sign-in only applies to this browser.</div><button class="bt" onClick="{{login}}">Sign in as admin</button></div></sc-if>
+<sc-if value="{{show.profile}}" hint-placeholder-val="{{ true }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Basic details</div><div class="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><label><span>Name <span class="rq">*</span></span><input value="{{pv.name}}" onInput="{{ph.name}}"><sc-if value="{{err.p_name}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label>Rotating words (comma separated)<input value="{{pv.words}}" onInput="{{ph.words}}"></label><label><span>Location <span class="rq">*</span></span><input value="{{pv.loc}}" onInput="{{ph.loc}}"><sc-if value="{{err.p_loc}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Role <span class="rq">*</span></span><input value="{{pv.role}}" onInput="{{ph.role}}"><sc-if value="{{err.p_role}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label>Email<input type="email" value="{{pv.email}}" onInput="{{ph.email}}"></label></div><label><span>Status <span class="rq">*</span></span><input value="{{pv.status}}" onInput="{{ph.status}}"><sc-if value="{{err.p_status}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label>Bio<textarea rows="6" value="{{pv.bio}}" onInput="{{ph.bio}}"></textarea></label></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Portrait photo</div><sc-if value="{{notCropping}}" hint-placeholder-val="{{ true }}"><div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><div style="width:120px;height:120px;border-radius:50%;overflow:hidden;border:2px solid var(--ac);flex:none"><img src="{{photoSrc}}" alt="Portrait preview" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div><div style="display:flex;flex-direction:column;gap:12px"><label class="bt" style="flex-direction:row;align-items:center;justify-content:center;cursor:pointer"><input type="file" accept="image/*" style="display:none" onChange="{{upPhoto}}">Upload new portrait</label><sc-if value="{{hasOrig}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{adjustPhoto}}">Adjust crop</button></sc-if><sc-if value="{{hasPhoto}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{rmPhoto}}">Remove (use sample photo)</button></sc-if></div></div></sc-if><sc-if value="{{cropping}}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:16px;align-items:center"><div style="color:var(--mut);font-size:13px;text-align:center">Drag the photo or use the sliders to choose the part that shows in the circle.</div><div style="width:280px;height:280px;border-radius:50%;overflow:hidden;position:relative;border:2px solid var(--ac);touch-action:none;cursor:grab;flex:none;background:#000" onPointerDown="{{startDrag}}" onPointerMove="{{moveDrag}}" onPointerUp="{{endDrag}}"><img src="{{cropSrc}}" alt="" style="{{cropImgStyle}}"></div><div style="width:100%;max-width:360px;display:flex;flex-direction:column;gap:12px"><label>Zoom<input type="range" min="100" max="300" value="{{zoomVal}}" onInput="{{setZoom}}" style="padding:0"></label><label>Left / right<input type="range" min="-100" max="100" value="{{pxVal}}" onInput="{{setPx}}" style="padding:0"></label><label>Up / down<input type="range" min="-100" max="100" value="{{pyVal}}" onInput="{{setPy}}" style="padding:0"></label></div><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{applyCrop}}">Use this crop</button><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancelCrop}}">Cancel</button></div></div></sc-if></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700;font-size:18px">Resume (optional)</div><div style="color:var(--mut);font-size:13px">Visitors can view and download this PDF from the Resume button on your public page.</div><div class="rw"><span style="min-width:0;overflow:hidden">{{resumeLabel}}</span></div><div style="display:flex;gap:12px;flex-wrap:wrap"><label class="bt" style="cursor:pointer"><input type="file" accept="application/pdf" style="display:none" onChange="{{upResume}}">Upload resume (PDF)</label><sc-if value="{{hasCustomResume}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{useDefaultResume}}">Use default resume</button></sc-if></div></div></div></sc-if>
+<sc-if value="{{show.ach}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Add or edit achievement</div><div style="display:flex;flex-direction:column;gap:14px"><label><span>Title <span class="rq">*</span></span><input value="{{f.ach_t}}" onInput="{{h.ach_t}}"><sc-if value="{{err.ach_t}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Year <span class="rq">*</span></span><input value="{{f.ach_y}}" onInput="{{h.ach_y}}"><sc-if value="{{err.ach_y}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Description <span class="rq">*</span></span><textarea rows="2" value="{{f.ach_x}}" onInput="{{h.ach_x}}"></textarea><sc-if value="{{err.ach_x}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.ach}}">{{btn.ach}}</button><sc-if value="{{editing.ach}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.ach}}">Cancel edit</button></sc-if></div></div></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">On the timeline</div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.ach}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.ach}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.proj}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Add or edit project</div><div style="display:flex;flex-direction:column;gap:14px"><label><span>Project name <span class="rq">*</span></span><input value="{{f.proj_t}}" onInput="{{h.proj_t}}"><sc-if value="{{err.proj_t}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Description <span class="rq">*</span></span><textarea rows="2" value="{{f.proj_x}}" onInput="{{h.proj_x}}"></textarea><sc-if value="{{err.proj_x}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label>Tech stack<input value="{{f.proj_s}}" onInput="{{h.proj_s}}"></label><label><span>Live URL <span class="rq">*</span></span><input value="{{f.proj_u}}" onInput="{{h.proj_u}}"><sc-if value="{{err.proj_u}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Source URL <span class="rq">*</span></span><input value="{{f.proj_v}}" onInput="{{h.proj_v}}"><sc-if value="{{err.proj_v}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.proj}}">{{btn.proj}}</button><sc-if value="{{editing.proj}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.proj}}">Cancel edit</button></sc-if></div></div></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Added projects</div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.proj}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.proj}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.skill}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Add or edit a skill group</div><div style="display:flex;flex-direction:column;gap:14px"><label><span>Group name <span class="rq">*</span></span><input value="{{f.skill_n}}" onInput="{{h.skill_n}}" placeholder="e.g. Languages"><sc-if value="{{err.skill_n}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Skills (separate with commas) <span class="rq">*</span></span><textarea rows="3" value="{{f.skill_i}}" onInput="{{h.skill_i}}" placeholder="e.g. Java, Python, SQL"></textarea><sc-if value="{{err.skill_i}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.skill}}">{{btn.skill}}</button><sc-if value="{{editing.skill}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.skill}}">Cancel edit</button></sc-if></div></div></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Skill groups on your page</div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.skill}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.skill}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.cert}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Add or edit certification</div><div style="display:flex;flex-direction:column;gap:14px"><label><span>Certification title <span class="rq">*</span></span><input value="{{f.cert_t}}" onInput="{{h.cert_t}}"><sc-if value="{{err.cert_t}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Issued by <span class="rq">*</span></span><input value="{{f.cert_i}}" onInput="{{h.cert_i}}"><sc-if value="{{err.cert_i}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label><span>Date (e.g. Aug 2026) <span class="rq">*</span></span><input value="{{f.cert_y}}" onInput="{{h.cert_y}}"><sc-if value="{{err.cert_y}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:var(--mut)">Copy of the certificate (optional)</div><label class="dz" style="cursor:pointer"><input type="file" accept="image/*" style="display:none" onChange="{{upCertC}}">Upload certificate image</label><sc-if value="{{hasCertC}}" hint-placeholder-val="{{ false }}"><div class="rw"><img src="{{certCSrc}}" alt="Certificate preview" style="width:72px;height:52px;object-fit:cover;border-radius:8px"><button class="ib" onClick="{{rmCertC}}" aria-label="Remove certificate copy">✕</button></div></sc-if></div><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.cert}}">{{btn.cert}}</button><sc-if value="{{editing.cert}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.cert}}">Cancel edit</button></sc-if></div></div></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Your certifications</div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.cert}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.cert}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.settings}}" hint-placeholder-val="{{ false }}"><div class="pn">
+<div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Appearance</div><div style="color:var(--mut);font-size:13px">Switch the look of the dashboard and the public page.</div><div style="display:flex;gap:10px;flex-wrap:wrap"><sc-for list="{{themes}}" as="tm" hint-placeholder-count="0"><button style="{{tm.style}}" onClick="{{tm.go}}">{{tm.label}}</button></sc-for></div></div>
+<div class="g" style="padding:24px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700;font-size:18px">Account</div><div>Signed in as <b>{{pv.email}}</b></div><div style="color:var(--mut);font-size:13px">This is a demo session. Real login arrives with the database and authentication step.</div><button class="bt" style="align-self:flex-start" onClick="{{logout}}">Log out</button></div>
+<div class="g" style="padding:24px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700;font-size:18px">Storage</div><div style="height:10px;border-radius:999px;background:var(--bd);overflow:hidden"><div style="{{usageStyle}}"></div></div><div style="font-size:14px">{{usageLabel}}</div><div style="color:var(--mut);font-size:13px">Browser storage is limited. Large photos fill it quickly.</div></div>
+<div class="g" style="padding:24px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700;font-size:18px">Data</div><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{copyBackup}}">Copy backup (JSON)</button><button class="bt" style="border-color:#ff5c5c;color:#ff8080" onClick="{{doReset}}">{{resetLabel}}</button></div></div>
+<div class="g" style="padding:24px;display:flex;flex-direction:column;gap:14px"><div style="font-weight:700;font-size:18px">Help &amp; support</div><div style="color:var(--mut);font-size:14px">Something not working? Send a message and include what you clicked.</div><a class="bt" style="align-self:flex-start;text-decoration:none" href="mailto:{{pv.email}}?subject=Portfolio%20admin%20support">Contact support</a><div style="color:var(--mut);font-size:12px">Portfolio admin · design prototype</div></div>
+</div></sc-if>
+<sc-if value="{{show.gal}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Photo gallery</div><label class="dz" style="cursor:pointer"><input type="file" accept="image/*" multiple style="display:none" onChange="{{upGal}}">Add photos (click to choose, several at once)</label><sc-if value="{{noGal}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">No photos added yet.</div></sc-if><sc-for list="{{gal}}" as="g" hint-placeholder-count="0"><div class="rw"><img src="{{g.src}}" alt="" style="width:56px;height:56px;object-fit:cover;border-radius:8px"><button class="ib" onClick="{{g.rm}}" aria-label="Remove photo">✕</button></div></sc-for></div></div></sc-if>
+<sc-if value="{{show.vid}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Videos & vlogs</div><label class="dz" style="cursor:pointer"><input type="file" accept="video/*" style="display:none" onChange="{{upVid}}">Upload a video file (plays on the public page once storage is connected)</label><div style="color:var(--mut);font-size:13px">Or add a direct video link (.mp4 or .webm):</div><div style="display:flex;flex-direction:column;gap:14px"><label>Title<input value="{{f.vid_n}}" onInput="{{h.vid_n}}"></label><label>Video URL<input value="{{f.vid_u}}" onInput="{{h.vid_u}}"></label><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.vid}}">{{btn.vid}}</button><sc-if value="{{editing.vid}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.vid}}">Cancel edit</button></sc-if></div></div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.vid}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.vid}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.sport}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Add or edit sport</div><div style="display:flex;flex-direction:column;gap:14px"><label><span>Sport <span class="rq">*</span></span><input value="{{f.sport_t}}" onInput="{{h.sport_t}}"><sc-if value="{{err.sport_t}}" hint-placeholder-val="{{ false }}"><span class="er">Required</span></sc-if></label><label>Level, teams, medals<textarea rows="2" value="{{f.sport_x}}" onInput="{{h.sport_x}}"></textarea></label><div style="display:flex;flex-direction:column;gap:10px"><div style="font-size:13px;color:var(--mut)">Certificate of the competition (optional)</div><label class="dz" style="cursor:pointer"><input type="file" accept="image/*" style="display:none" onChange="{{upCert}}">Upload certificate image</label><sc-if value="{{hasCert}}" hint-placeholder-val="{{ false }}"><div class="rw"><img src="{{certSrc}}" alt="Certificate preview" style="width:72px;height:52px;object-fit:cover;border-radius:8px"><button class="ib" onClick="{{rmCert}}" aria-label="Remove certificate">✕</button></div></sc-if></div><div style="display:flex;gap:12px;flex-wrap:wrap"><button class="bt" onClick="{{addf.sport}}">{{btn.sport}}</button><sc-if value="{{editing.sport}}" hint-placeholder-val="{{ false }}"><button class="bt" style="border-color:var(--bd);color:var(--fg)" onClick="{{cancel.sport}}">Cancel edit</button></sc-if></div></div></div><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Added sports</div><div style="display:flex;flex-direction:column;gap:8px"><sc-if value="{{empty.sport}}" hint-placeholder-val="{{ false }}"><div style="color:var(--mut);font-size:14px">Nothing added yet.</div></sc-if><sc-for list="{{lists.sport}}" as="it" hint-placeholder-count="0"><div class="rw"><span style="min-width:0;overflow:hidden">{{it.label}}</span><span style="display:flex;gap:6px"><button class="ib" onClick="{{it.edit}}">Edit</button><button class="ib" onClick="{{it.rm}}" aria-label="Remove">✕</button></span></div></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.social}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Social links</div><div class="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px"><sc-for list="{{socials}}" as="so" hint-placeholder-count="0"><label><span style="display:flex;align-items:center;gap:8px"><img src="{{so.ico}}" alt="" style="width:24px;height:24px;object-fit:contain;border-radius:6px;background:#fff;padding:2px">{{so.label}}</span><input placeholder="URL" value="{{so.val}}" onInput="{{so.on}}"></label></sc-for></div></div></div></sc-if>
+<sc-if value="{{show.anim}}" hint-placeholder-val="{{ false }}"><div class="pn"><div class="g" style="padding:24px;display:flex;flex-direction:column;gap:16px"><div style="font-weight:700;font-size:18px">Animations</div><div style="color:var(--mut);font-size:13px">Applies to photo tiles on the public page.</div><div style="display:flex;gap:10px;flex-wrap:wrap"><sc-for list="{{ents}}" as="e" hint-placeholder-count="0"><button style="{{e.style}}" onClick="{{e.go}}">{{e.label}}</button></sc-for></div><label>Speed (lower is faster)<div style="display:flex;align-items:center;gap:16px"><input type="range" min="3" max="15" value="{{speed}}" onInput="{{setSpeed}}" style="padding:0;flex:1"><span class="m" style="min-width:60px;text-align:right;font-size:16px">{{speedLabel}}</span></div></label></div></div></sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#7cf5d4"},"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+componentDidMount() {
+this.K = 'aditya-portfolio';
+try { this.bc = new BroadcastChannel(this.K); } catch (e) {}
+this.sync = () => {
+let d = {}; let th = 'dark'; let out = false;
+try { d = JSON.parse(localStorage.getItem(this.K) || 'null') || {}; th = localStorage.getItem('aditya-theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); out = localStorage.getItem('aditya-admin') !== '1'; } catch (e) {}
+this.setState({ d: d, theme: th, out: out });
+};
+this.onStorage = (e) => { if (e.key === this.K || e.key === 'aditya-theme' || e.key === 'aditya-admin') this.sync(); };
+window.addEventListener('storage', this.onStorage);
+if (this.bc) this.bc.onmessage = () => this.sync();
+this.sync();
+this.setState({ tab: 'profile', f: {}, ei: {}, st: '● Live editing: changes show instantly on the public page' });
+}
+componentWillUnmount() { window.removeEventListener('storage', this.onStorage); if (this.bc) this.bc.close(); }
+setTheme(t) { try { localStorage.setItem('aditya-theme', t); if (this.bc) this.bc.postMessage(1); } catch (e) {} this.setState({ theme: t }); }
+setOut(v) { try { if (v) localStorage.removeItem('aditya-admin'); else localStorage.setItem('aditya-admin', '1'); if (this.bc) this.bc.postMessage(1); } catch (e) {} this.setState({ out: v }); }
+copyBackup() { try { navigator.clipboard.writeText(JSON.stringify((this.state || {}).d || {})).then(() => this.setState({ st: '● Backup copied to your clipboard' })); } catch (e) { this.setState({ st: 'Copy is not available here' }); } }
+doReset() { const s = this.state || {}; if (!s.cr) { this.setState({ cr: true }); setTimeout(() => this.setState({ cr: false }), 4000); return; } this.setState({ cr: false }); this.save({}); }
+save(d) {
+this.setState({ busy: true });
+clearTimeout(this.bt);
+this.bt = setTimeout(() => this.setState({ busy: false }), 500);
+try {
+localStorage.setItem(this.K, JSON.stringify(d));
+if (this.bc) this.bc.postMessage(1);
+this.setState({ d: d, st: '● Live · synced ' + new Date().toLocaleTimeString() });
+} catch (e) {
+if (d.photoSrc) { try { const d2 = JSON.parse(JSON.stringify(d)); delete d2.photoSrc; localStorage.setItem(this.K, JSON.stringify(d2)); if (this.bc) this.bc.postMessage(1); this.setState({ d: d2, st: '● Live · synced (storage nearly full, so the original photo was not kept)' }); return; } catch (e2) {} }
+this.setState({ d: d, st: 'Storage is not connected or is full: changes cannot sync' });
+}
+}
+dd() { const d = JSON.parse(JSON.stringify((this.state || {}).d || {})); if (!d.cert) d.cert = this.defc(); ['ach', 'proj', 'sport', 'skill'].forEach((k) => { if (!d[k + '_v2']) { d[k] = this.lst(d, k); d[k + '_v2'] = 1; } }); return d; }
+defa() { return [{"y": "2025", "t": "AlgoUniversity Tech Fellowship 2025, Stage 1", "x": "Cleared Stage 1 of a competitive selection program."}, {"y": "2026", "t": "GDG Cloud Mumbai: Build with MongoDB and AI", "x": "Selected for a hands-on event with a panel of industry speakers."}, {"y": "2026", "t": "Top 10 at Hacker House Goa 2026", "x": "Led team Infinity Logic to a top 10 finish among 700+ registered teams."}, {"y": "2nd year", "t": "Head of the Photography Committee", "x": "Led my department's photography committee in Computer Science and Design."}, {"y": "Aura 2.0", "t": "Lead Designer, Aura 2.0", "x": "Designed event posters and pamphlets for the college fest."}]; }
+defp() { return [{"t": "Hacker House Goa Generator", "x": "Photo frame and ID card generator for the Hacker House Goa 2026 hackathon. Led the team, Infinity Logic, and built it single-handedly. It reached 1.5k+ users and ranked in the top 10 of 700+ registered teams.", "s": "Python FastAPI · Google Gemini · Vite · Node.js · HTML · CSS · Vercel", "u": "https://hh-goa-26-delta.vercel.app/", "v": "https://github.com/Aditya120405/HH-Goa-26"}, {"t": "NabhaSetu", "x": "Smart education portal for students of Nabha, Punjab, built for an SIH internal hackathon to bridge rural connectivity and access gaps. Frontend Lead: offline-friendly study material, parent progress tracking, teacher notices and quizzes.", "s": "React · Vite · Node.js · Express.js · FastAPI · Google Gemini · Vercel", "u": "", "v": "https://github.com/Aditya120405/Nabhasetu"}, {"t": "Bank Account System", "x": "Desktop banking application built with core Java and Java Swing.", "s": "Java · Java Swing", "u": "", "v": ""}]; }
+defs() { return [{"t": "Volleyball", "x": ""}, {"t": "Skating", "x": ""}, {"t": "Roll Ball", "x": ""}, {"t": "Football", "x": ""}, {"t": "Aerial Silk", "x": ""}, {"t": "Yoga", "x": ""}, {"t": "Mallakhamb", "x": ""}]; }
+defk() { return [{"n": "Languages & web", "i": "Java, Python, JavaScript, HTML, CSS"}, {"n": "Frameworks & tooling", "i": "React, Vite, Node.js, Express.js, FastAPI"}, {"n": "Data & core CS", "i": "DSA, DBMS, SQL Database, MongoDB, Firebase"}, {"n": "Cloud & AI", "i": "GCP, Azure, Oracle Cloud, Google Gemini"}, {"n": "Workflow", "i": "Git & GitHub, Vercel, Google Stitch"}, {"n": "Design", "i": "Poster design, Canva, Adobe Photoshop, Affinity, Adobe Express"}]; }
+lst(d, k) { const base = k === 'ach' ? this.defa() : (k === 'proj' ? this.defp() : (k === 'skill' ? this.defk() : this.defs())); return d[k + '_v2'] ? (d[k] || []) : base.concat(d[k] || []); }
+arr(k) { const d = (this.state || {}).d || {}; if (k === 'cert') return d.cert || this.defc(); if (k === 'ach' || k === 'proj' || k === 'sport' || k === 'skill') return this.lst(d, k); return d[k] || []; }
+upResume(e) {
+const f = e.target.files[0];
+if (!f) return;
+if (f.type !== 'application/pdf') { this.setState({ st: 'Please choose a PDF file' }); return; }
+this.setState({ busy: true });
+try {
+const r = indexedDB.open('aditya-media', 1);
+r.onupgradeneeded = () => r.result.createObjectStore('v');
+r.onsuccess = () => {
+const id = 'r' + Date.now();
+const t = r.result.transaction('v', 'readwrite');
+t.objectStore('v').put(f, id);
+t.oncomplete = () => { const d = this.dd(); d.resume = { id: id, n: f.name }; this.setState({ busy: false }); this.save(d); };
+t.onerror = () => this.setState({ busy: false, st: 'Could not store the resume here' });
+};
+r.onerror = () => this.setState({ busy: false, st: 'Storage is not connected: the default resume stays' });
+} catch (x) { this.setState({ busy: false, st: 'Storage is not connected: the default resume stays' }); }
+}
+defc() { return [{"y": "Oct 2025", "t": "AlgoUniversity Tech Fellowship 2025", "i": "Stage 1 clearance"}, {"y": "Dec 2025", "t": "Fabric Data Engineer (DP-700) Ignite & Fabric Data Days Skills Challenge", "i": "Microsoft"}, {"y": "May 2026", "t": "Programming in Java", "i": "NPTEL / Swayam"}, {"y": "Aug 2026", "t": "Build with MongoDB and AI", "i": "Google Cloud Platform"}, {"y": "Aug 2026", "t": "Getting Started with Artificial Intelligence", "i": "IBM"}, {"y": "[DATE]", "t": "Introduction to Cloud Infrastructure", "i": "Microsoft"}, {"y": "Sep 2026", "t": "Oracle Cloud Infrastructure AI Foundations", "i": "Oracle"}, {"y": "Expected soon", "t": "Responsive Web Design", "i": "freeCodeCamp"}]; }
+upCertC(e) { const f = e.target.files[0]; if (!f) return; this.shrink(f, (u) => this.setF('cert_c', u), 1200); }
+setT(k, v) { const d = this.dd(); d.t = d.t || {}; d.t[k] = v; this.save(d); }
+setL(k, v) { const d = this.dd(); d.l = d.l || {}; d.l[k] = v; this.save(d); }
+setF(n, v) { const s = this.state || {}; const f = Object.assign({}, s.f || {}); f[n] = v; const er = Object.assign({}, s.err || {}); delete er[n]; this.setState({ f: f, err: er }); }
+upCert(e) { const f = e.target.files[0]; if (!f) return; this.shrink(f, (u) => this.setF('sport_c', u), 1200); }
+add(k, keys) {
+const s = this.state || {};
+const f = s.f || {};
+const o = {};
+keys.forEach((x) => { o[x] = f[k + '_' + x] || ''; });
+const REQ = { ach: ['t', 'y', 'x'], proj: ['t', 'x', 'u', 'v'], sport: ['t'], cert: ['t', 'i', 'y'], skill: ['n', 'i'] };
+const miss = (REQ[k] || []).filter((x) => !String(o[x] || '').trim());
+if (miss.length) { const er = {}; miss.forEach((x) => { er[k + '_' + x] = true; }); this.setState({ err: er }); return; }
+if (!(o.t || o.n || o.u)) return;
+const d = this.dd();
+d[k] = d[k] || [];
+const ei = Object.assign({}, s.ei || {});
+if (k === 'vid') o.k = 'url';
+if (ei[k] != null) { d[k][ei[k]] = Object.assign({}, d[k][ei[k]], o); } else { d[k].push(o); }
+ei[k] = null;
+const nf = Object.assign({}, f);
+keys.forEach((x) => { nf[k + '_' + x] = ''; });
+this.setState({ f: nf, ei: ei, err: {} });
+this.save(d);
+}
+edit(k, keys, i) {
+const s = this.state || {};
+const it = this.arr(k)[i] || {};
+const nf = Object.assign({}, s.f || {});
+keys.forEach((x) => { nf[k + '_' + x] = it[x] || ''; });
+const ei = Object.assign({}, s.ei || {});
+ei[k] = i;
+this.setState({ f: nf, ei: ei });
+}
+cancel(k, keys) {
+const s = this.state || {};
+const nf = Object.assign({}, s.f || {});
+keys.forEach((x) => { nf[k + '_' + x] = ''; });
+const ei = Object.assign({}, s.ei || {});
+ei[k] = null;
+this.setState({ f: nf, ei: ei, err: {} });
+}
+remove(k, i) { const d = this.dd(); (d[k] || []).splice(i, 1); this.save(d); }
+shrink(file, cb, max) {
+this.setState({ busy: true });
+const r = new FileReader();
+r.onload = () => {
+const im = new Image();
+im.onload = () => {
+const sc = Math.min(1, (max || 720) / Math.max(im.width, im.height));
+const c = document.createElement('canvas');
+c.width = im.width * sc; c.height = im.height * sc;
+c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+this.setState({ busy: false });
+cb(c.toDataURL('image/jpeg', 0.8));
+};
+im.src = r.result;
+};
+r.readAsDataURL(file);
+}
+upPhoto(e) { const f = e.target.files[0]; if (!f) return; this.shrink(f, (u) => this.openCrop(u), 800); }
+openCrop(src) { const im = new Image(); im.onload = () => this.setState({ crop: { src: src, nw: im.width, nh: im.height, zoom: 1, px: 0, py: 0 } }); im.src = src; }
+adjustPhoto() { const d = (this.state || {}).d || {}; if (d.photoSrc) this.openCrop(d.photoSrc); }
+geo(c) { const F = 280; const s0 = Math.max(F / c.nw, F / c.nh); const sc = s0 * c.zoom; const dw = c.nw * sc; const dh = c.nh * sc; const mx = Math.max(0, (dw - F) / 2); const my = Math.max(0, (dh - F) / 2); return { F: F, sc: sc, dw: dw, dh: dh, mx: mx, my: my, ox: c.px * mx, oy: c.py * my }; }
+setCrop(k, v) { const c = (this.state || {}).crop; if (!c) return; const n = Object.assign({}, c); n[k] = v; this.setState({ crop: n }); }
+startDrag(e) { const c = (this.state || {}).crop; if (!c) return; this.ds = { x: e.clientX, y: e.clientY, px: c.px, py: c.py }; try { e.currentTarget.setPointerCapture(e.pointerId); } catch (x) {} }
+moveDrag(e) {
+if (!this.ds) return;
+const c = (this.state || {}).crop;
+if (!c) return;
+const g = this.geo(c);
+const px = g.mx ? this.ds.px + (e.clientX - this.ds.x) / g.mx : 0;
+const py = g.my ? this.ds.py + (e.clientY - this.ds.y) / g.my : 0;
+this.setState({ crop: Object.assign({}, c, { px: Math.max(-1, Math.min(1, px)), py: Math.max(-1, Math.min(1, py)) }) });
+}
+applyCrop() {
+const c = (this.state || {}).crop;
+if (!c) return;
+const im = new Image();
+im.onload = () => {
+const g = this.geo(c);
+const cv = document.createElement('canvas');
+cv.width = 480; cv.height = 480;
+const sx = (g.dw / 2 - g.F / 2 - g.ox) / g.sc;
+const sy = (g.dh / 2 - g.F / 2 - g.oy) / g.sc;
+const cx = cv.getContext('2d');
+cx.beginPath(); cx.arc(240, 240, 240, 0, Math.PI * 2); cx.closePath(); cx.clip();
+cx.drawImage(im, sx, sy, g.F / g.sc, g.F / g.sc, 0, 0, 480, 480);
+const d = this.dd();
+let u = cv.toDataURL('image/webp', 0.9);
+if (u.indexOf('data:image/webp') !== 0) u = cv.toDataURL('image/png');
+d.photo = u;
+d.photoSrc = c.src;
+this.setState({ crop: null });
+this.save(d);
+};
+im.src = c.src;
+}
+upGal(e) { Array.prototype.forEach.call(e.target.files, (f) => { this.shrink(f, (u) => { const d = this.dd(); d.gal = d.gal || []; d.gal.push(u); this.save(d); }); }); }
+upVid(e) {
+const f = e.target.files[0];
+if (!f) return;
+try {
+const r = indexedDB.open('aditya-media', 1);
+r.onupgradeneeded = () => r.result.createObjectStore('v');
+r.onsuccess = () => {
+const id = 'v' + Date.now();
+const t = r.result.transaction('v', 'readwrite');
+t.objectStore('v').put(f, id);
+t.oncomplete = () => { const d = this.dd(); d.vid = d.vid || []; d.vid.push({ k: 'idb', id: id, n: f.name }); this.save(d); };
+t.onerror = () => this.setState({ st: 'Could not store the video here' });
+};
+r.onerror = () => this.setState({ st: 'Storage is not connected: add a video link instead' });
+} catch (e) { this.setState({ st: 'Storage is not connected: add a video link instead' }); }
+}
+renderVals() {
+const s = this.state || {};
+const d = s.d || {};
+const t = d.t || {};
+const l = d.l || {};
+const tab = s.tab || 'profile';
+const out = !!s.out;
+const th = s.theme === 'light' ? 'light' : 'dark';
+const FORMS = {"ach": ["t", "y", "x"], "proj": ["t", "x", "s", "u", "v"], "sport": ["t", "x", "c"], "vid": ["n", "u"], "cert": ["t", "i", "y", "c"], "skill": ["n", "i"]};
+const tabs = [['profile', 'Personal info'], ['ach', 'Achievements'], ['proj', 'Projects'], ['skill', 'Skills'], ['cert', 'Certifications'], ['gal', 'Photo gallery'], ['vid', 'Videos & vlogs'], ['sport', 'Sports'], ['social', 'Social links'], ['anim', 'Animations'], ['settings', 'Settings']];
+const on = 'display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:0;font:inherit;font-size:15px;cursor:pointer;min-height:44px;background:color-mix(in srgb,var(--ac) 12%,transparent);color:var(--ac)';
+const off = 'display:block;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:0;font:inherit;font-size:15px;cursor:pointer;min-height:44px;background:none;color:var(--fg)';
+const tabList = tabs.map((x) => ({ label: x[1], style: tab === x[0] ? on : off, go: () => this.setState({ tab: x[0], navOpen: false }) }));
+const show = {};
+tabs.forEach((x) => { show[x[0]] = tab === x[0] && !out; });
+const f = {}; const h = {};
+Object.keys(FORMS).forEach((k) => FORMS[k].forEach((x) => { const n = k + '_' + x; f[n] = (s.f || {})[n] || ''; h[n] = (e) => this.setF(n, e.target.value); }));
+const lbl = { ach: (a) => (a.y ? a.y + ' · ' : '') + (a.t || ''), proj: (a) => a.t || '', sport: (a) => (a.t || '') + (a.c ? ' · certificate attached' : ''), cert: (a) => (a.y ? a.y + ' · ' : '') + (a.t || '') + (a.c ? ' · copy attached' : ''), skill: (a) => (a.n || '') + ' · ' + String(a.i || '').split(',').filter((x) => x.trim()).length + ' skills', vid: (a) => (a.k === 'idb' ? 'file · ' : 'link · ') + (a.n || a.u || '') };
+const lists = {}; const empty = {}; const btn = {}; const editing = {}; const cancel = {}; const addf = {};
+Object.keys(FORMS).forEach((k) => {
+lists[k] = this.arr(k).map((a, i) => ({ label: lbl[k](a), edit: () => this.edit(k, FORMS[k], i), rm: () => this.remove(k, i) }));
+empty[k] = lists[k].length === 0;
+const ed = (s.ei || {})[k] != null;
+editing[k] = ed;
+btn[k] = ed ? 'Save changes' : (k === 'vid' ? 'Add video link' : (k === 'skill' ? 'Add skill group' : 'Add'));
+cancel[k] = () => this.cancel(k, FORMS[k]);
+addf[k] = () => this.add(k, FORMS[k]);
+});
+const gal = (d.gal || []).map((x, i) => ({ src: x, rm: () => this.remove('gal', i) }));
+const pv = {}; const ph = {};
+['name', 'words', 'loc', 'role', 'status', 'bio', 'email'].forEach((k) => { pv[k] = t[k] != null ? t[k] : {"email": "aadityajain01223@gmail.com", "name": "Aditya", "words": "Full-stack, Cloud, Design, Photography, Reader", "loc": "Khapar, Nandurbar, Maharashtra", "role": "Head, Photography Committee", "status": "Open to internships, jobs & travel", "bio": "Part full-stack builder, part pixel obsessive. I turn messy problems into slick products people genuinely enjoy using. Third-year CS & Design at Dr. Vithalrao Vikhe Patil College of Engineering (SPPU), GDG regular across Mumbai, Pune and Gandhinagar, and the one behind the lens as head of the photography committee."}[k]; ph[k] = (e) => this.setT(k, e.target.value); });
+const IC = { github: '/_blob/b6abf8deebb67e4322db8804936b9a84', linkedin: '/_blob/ed137f9be0f6be82bbfebe82611e7f5c', instagram: '/_blob/c4e4f56baa742e5704de6a3dbeef2b6b', leetcode: '/_blob/968da40ad41a56c8a746683c0c2de30b', snapchat: '/_blob/01d596824a63bf92d7aaf5bf9cf3b11d', pinterest: '/_blob/2effdf29d6f468df97f28e319e20caa2', x: '/_blob/5fc54e212d675556207b40ee7446e797' };
+const socials = [['github', 'GitHub', 'https://github.com/Aditya120405'], ['linkedin', 'LinkedIn', 'https://www.linkedin.com/in/aditya-jain1204'], ['instagram', 'Instagram', 'https://www.instagram.com/the.lostframes__'], ['leetcode', 'LeetCode', ''], ['snapchat', 'Snapchat', ''], ['pinterest', 'Pinterest', ''], ['x', 'X', '']].map((x) => ({ ico: IC[x[0]], label: x[1], val: l[x[0]] != null ? l[x[0]] : x[2], on: (e) => this.setL(x[0], e.target.value) }));
+const cr = s.crop;
+let cropImgStyle = '';
+if (cr) { const g = this.geo(cr); cropImgStyle = 'position:absolute;max-width:none;pointer-events:none;width:' + g.dw + 'px;height:' + g.dh + 'px;left:' + ((g.F - g.dw) / 2 + g.ox) + 'px;top:' + ((g.F - g.dh) / 2 + g.oy) + 'px'; }
+const err = {};
+Object.keys(FORMS).forEach((k) => FORMS[k].forEach((x) => { err[k + '_' + x] = !!(s.err || {})[k + '_' + x]; }));
+['name', 'loc', 'role', 'status'].forEach((k) => { err['p_' + k] = !String(pv[k] || '').trim(); });
+let used = 0;
+try { used = (localStorage.getItem(this.K) || '').length; } catch (e) {}
+const pct = Math.min(100, Math.round(used / 50000));
+const tbOn = 'padding:10px 18px;border-radius:999px;border:1px solid var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);color:var(--ac);font:inherit;cursor:pointer;min-height:44px';
+const tbOff = 'padding:10px 18px;border-radius:999px;border:1px solid var(--bd);background:none;color:var(--fg);font:inherit;cursor:pointer;min-height:44px';
+const themes = [['Dark', 'dark'], ['Light', 'light']].map((x) => ({ label: x[0], style: th === x[1] ? tbOn : tbOff, go: () => this.setTheme(x[1]) }));
+const cur = d.ent || 'up';
+const eon = 'padding:10px 18px;border-radius:999px;border:1px solid var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);color:var(--ac);font:inherit;cursor:pointer;min-height:44px';
+const eoff = 'padding:10px 18px;border-radius:999px;border:1px solid var(--bd);background:none;color:var(--fg);font:inherit;cursor:pointer;min-height:44px';
+const ents = [['Fade up', 'up'], ['Zoom in', 'zoom'], ['Slide from left', 'slide'], ['None', 'none']].map((x) => ({ label: x[0], style: cur === x[1] ? eon : eoff, go: () => { const dd = this.dd(); dd.ent = x[1]; this.save(dd); } }));
+return {
+accent: this.props.accent ?? '#7cf5d4',
+st: s.st || '● Live editing: changes show instantly on the public page',
+tabList: tabList, show: show, f: f, h: h, lists: lists, empty: empty, btn: btn, editing: editing, cancel: cancel, addf: addf,
+gal: gal, noGal: gal.length === 0, pv: pv, ph: ph, socials: socials, ents: ents,
+photoSrc: d.photo || '/_blob/cb74fc0db53272e935b4bfe72ecaed65', hasPhoto: !!d.photo, usingDefault: !d.photo,
+cropping: !!cr, notCropping: !cr, hasOrig: !!d.photoSrc, cropImgStyle: cropImgStyle, cropSrc: cr ? cr.src : '', zoomVal: cr ? String(Math.round(cr.zoom * 100)) : '100', pxVal: cr ? String(Math.round(cr.px * 100)) : '0', pyVal: cr ? String(Math.round(cr.py * 100)) : '0',
+setZoom: (e) => this.setCrop('zoom', e.target.value / 100), setPx: (e) => this.setCrop('px', e.target.value / 100), setPy: (e) => this.setCrop('py', e.target.value / 100),
+startDrag: (e) => this.startDrag(e), moveDrag: (e) => this.moveDrag(e), endDrag: () => { this.ds = null; },
+applyCrop: () => this.applyCrop(), cancelCrop: () => this.setState({ crop: null }), adjustPhoto: () => this.adjustPhoto(),
+tv: th === 'light' ? '--bg:#e8f1ef;--fg:#0b1f2a;--mut:#3d5160;--card:rgba(255,255,255,.92);--bd:rgba(11,31,42,.14);--ac:#0a7d68;--ac2:#18c9a0;--onac:#ffffff;--orbo:.38;--sh:0 10px 30px rgba(11,31,42,.08),0 1px 3px rgba(11,31,42,.06)' : '--bg:#07090f;--fg:#e8ecf4;--mut:#9aa4b8;--card:rgba(255,255,255,.05);--bd:rgba(255,255,255,.12);--ac:#7cf5d4;--ac2:#7cf5d4;--onac:#07090f;--orbo:.12;--sh:none', sbc: s.navOpen ? 'open' : '', navOpen: !!s.navOpen, toggleNav: () => this.setState({ navOpen: !s.navOpen }), out: out, busy: !!s.busy, themes: themes, logout: () => this.setOut(true), login: () => this.setOut(false), copyBackup: () => this.copyBackup(), doReset: () => this.doReset(), resetLabel: s.cr ? 'Click again to confirm reset' : 'Reset all dashboard data',
+usageLabel: (used / 1024).toFixed(0) + ' KB of about 5 MB (' + pct + '%)', usageStyle: 'height:100%;border-radius:999px;transition:width .5s;width:' + pct + '%;background:' + (pct > 80 ? '#ff5c5c' : 'var(--ac)'),
+err: err, speedLabel: parseFloat(d.speed || '0.7').toFixed(1) + ' s', certSrc: f.sport_c, hasCert: !!f.sport_c, upCert: (e) => this.upCert(e), rmCert: () => this.setF('sport_c', ''), certCSrc: f.cert_c, hasCertC: !!f.cert_c, upCertC: (e) => this.upCertC(e), rmCertC: () => this.setF('cert_c', ''),
+resumeLabel: d.resume ? d.resume.n + ' (your upload)' : 'Aditya_Jain_Resume.pdf (default)', hasCustomResume: !!d.resume, upResume: (e) => this.upResume(e), useDefaultResume: () => { const dd = this.dd(); delete dd.resume; this.save(dd); },
+rmPhoto: () => { const dd = this.dd(); delete dd.photo; delete dd.photoSrc; this.save(dd); },
+upPhoto: (e) => this.upPhoto(e), upGal: (e) => this.upGal(e), upVid: (e) => this.upVid(e),
+speed: String(Math.round(parseFloat(d.speed || '0.7') * 10)),
+setSpeed: (e) => { const dd = this.dd(); dd.speed = (e.target.value / 10).toFixed(1); this.save(dd); }
+};
+}
+}
+</script>
+</body>
+</html>

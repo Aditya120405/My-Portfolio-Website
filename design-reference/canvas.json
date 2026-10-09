@@ -1,0 +1,57 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Dashboard.dc.html": {
+      "expand": "fill",
+      "h": 1000,
+      "is_interactive": true,
+      "title": "Admin dashboard",
+      "w": 1280,
+      "x": 1360,
+      "y": 0
+    },
+    "DashboardMobile.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "is_interactive": true,
+      "title": "Dashboard (mobile)",
+      "w": 390,
+      "x": 3190,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 5800,
+      "title": "Portfolio (public site)",
+      "w": 1280,
+      "x": 0,
+      "y": 0
+    },
+    "Mobile.dc.html": {
+      "expand": "fill",
+      "h": 8000,
+      "title": "Portfolio (mobile)",
+      "w": 390,
+      "x": 2720,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-02T12:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {},
+  "order": [
+    "Main.dc.html",
+    "Dashboard.dc.html",
+    "Mobile.dc.html",
+    "DashboardMobile.dc.html"
+  ],
+  "pages": [],
+  "title": "Aditya Portfolio"
+}
